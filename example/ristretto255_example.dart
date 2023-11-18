@@ -14,7 +14,7 @@ void main() {
     'Just pulling a normal shot short will produce a weaker shot',
     'and is not a Ristretto as some believe.',
   ];
-  final elements = <String>[
+  final results = <String>[
     '3066f82a1a747d45120d1740f14358531a8f04bbffe6a819f86dfe50f44a0a46',
     'f26e5b6f7d362d2d2a94c5d0e7602cb4773c95a2e5c31a64f133189fa76ed61b',
     '006ccd2a9e6867e6a2c5cea83d3302cc9de128dd2a9a57dd8ee7b9d7ffe02826',
@@ -24,12 +24,15 @@ void main() {
     '80bd07262511cdde4863f8a7434cef696750681cb9510eea557088f76d9e5065',
   ];
 
-  final Element element = Element.newElement();
   for (int i = 0; i < inputs.length; i++) {
-    element.fromUniformBytes(Uint8List.fromList(
-        const DartSha512().hashSync(utf8.encode(inputs[i])).bytes));
+    final bytes = utf8.encode(inputs[i]);
+
+    final hashedBytes = const DartSha512().hashSync(bytes).bytes;
+
+    final Element element = Element.newElement();
+    element.fromUniformBytes(Uint8List.fromList(hashedBytes));
 
     final encoding = hex.encode(element.encode());
-    assert(encoding == elements[i]);
+    assert(encoding == results[i]);
   }
 }
