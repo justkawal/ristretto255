@@ -1,0 +1,17 @@
+name: ristretto255
+description: A tiny cup, a mighty punch - ristretto255!!
+version: 1.0.1
+repository: https://github.com/justkawal/ristretto255
+
+environment:
+  sdk: ^3.0.5
+
+dependencies:
+  collection: ^1.18.0
+  cryptography: ^2.7.0
+  edwards25519: ^1.0.3
+
+dev_dependencies:
+  convert: ^3.1.1
+  lints: ^2.0.0
+  test: ^1.21.0
