@@ -1,5 +1,3 @@
-// ignore_for_file: non_constant_identifier_names
-
 part of ristretto255;
 
 /// A Scalar is an element of the ristretto255 scalar field, as specified in

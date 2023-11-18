@@ -3,3 +3,6 @@ include: package:lints/recommended.yaml
 linter:
   rules:
     prefer_final_fields: true
+    constant_identifier_names: false
+    non_constant_identifier_names: false
+    use_string_in_part_of_directives: false
