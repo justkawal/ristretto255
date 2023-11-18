@@ -42,9 +42,12 @@ void main() {
   ];
 
   for (int i = 0; i < inputs.length; i++) {
-    final Element element = Element.newElement()
-      ..fromUniformBytes(Uint8List.fromList(
-          const DartSha512().hashSync(utf8.encode(inputs[i])).bytes));
+    final bytes = utf8.encode(inputs[i]);
+
+    final hashedBytes = const DartSha512().hashSync(bytes).bytes;
+
+    final Element element = Element.newElement();
+    element.fromUniformBytes(Uint8List.fromList(hashedBytes));
 
     final encoding = hex.encode(element.encode());
     assert(encoding == results[i]);
